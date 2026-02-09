@@ -1,9 +1,32 @@
-<html lang="pl"><head>
+<html lang="pl">
+    <head>
+
+<script>
+  (function() {
+    const emoji = '✌️';
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    ctx.font = '48px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(emoji, 32, 36);
+
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = canvas.toDataURL();
+    document.head.appendChild(link);
+  })();
+</script>
+</head>
+    
+    <head>
     <meta charset="UTF-8">
-    <title>Prosta strona</title>
+    <title>Creative Director | Adam Caban</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-
         @font-face {
             font-family: 'LibreCaslonCondensed';
             src: url('fonts/LibreCaslonCondensed-Regular.woff2') format('woff2'),
