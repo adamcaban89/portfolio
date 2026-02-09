@@ -1,27 +1,4 @@
-<html lang="pl">
-    <head>
-
-<script>
-  (function() {
-    const emoji = '✌️';
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
-    ctx.font = '48px serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(emoji, 32, 36);
-
-    const link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.href = canvas.toDataURL();
-    document.head.appendChild(link);
-  })();
-</script>
-</head>
-    
+<html lang="pl">    
     <head>
     <meta charset="UTF-8">
     <title>Creative Director | Adam Caban</title>
@@ -52,12 +29,11 @@
             }
         
         .caslon-italic, em, i {
-        font-family: 'LibreCaslonCondensed', Helvetica, Arial, sans-serif;
-        font-style: italic;
-        }
-        .caslon-bold, em, i {
-        font-family: 'LibreCaslonCondensed', Helvetica, Arial, sans-serif;
-        font-style: italic;
+            font-family: 'LibreCaslonCondensed';
+            src: url('fonts/LibreCaslonCondensed-Bold.woff2') format('woff2'),
+                 url('fonts/LibreCaslonCondensed-Bold.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
         }
 
         html, body {
@@ -94,6 +70,26 @@
             z-index: -1;
         }
 
+        .headline {
+        width: 100%;
+        text-align: center;
+        font-family: 'LibreCaslonCondensed', Helvetica, Arial, sans-serif;
+        font-size: 36pt;
+        font-weight: 400;
+        color: #FFD333;
+        letter-spacing: 2px;
+        }
+
+        .subhead {
+        font-size: 10pt;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #FFD333;
+        font-weight: 400;
+        margin-top: 6px;
+        line-height: 1.1;    /* ciasna interlinia */
+        letter-spacing: 0.05em;
+        }
+
         .centered-content {
             position: relative;
             z-index: 1;
@@ -109,6 +105,7 @@
         }
 
         p {
+                        margin-top: 50px;
             text-wrap: pretty;
             font-size: 12pt;
             color: #FFD333;
@@ -134,7 +131,7 @@
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 50px;
             display: flex;
             gap: 50px;
             opacity: 0;
@@ -146,7 +143,8 @@
             position: relative;
             color: #FFD333;
             text-decoration: none;
-            font-size: 11pt;
+        font-size: 10pt;
+        font-family: Helvetica, Arial, sans-serif;
         }
 
         /* Animowane podkreślenie */
@@ -191,45 +189,66 @@
             }
         }
     </style>
-</head>
-<script>
-function widowsFix(selector, count = 2) {
-document.querySelectorAll(selector).forEach(function(element) {
-    if (count === 2) {
-        element.innerHTML = element.innerHTML.replace(/ (\S+) (\S+)$/, ' $1&nbsp;$2');
-    }
-    if (count === 3) {
-        element.innerHTML = element.innerHTML.replace(/ (\S+) (\S+) (\S+)$/, ' $1&nbsp;$2&nbsp;$3');
-    }
-});
-}
 
-// Dla akapitów – ostatnie 2 słowa sklejamy
-widowsFix("p", 2);
-// Dla nagłówków – ostatnie 3 słowa sklejamy
-widowsFix("h1, h2, h3", 3);
-</script>
+    <script>
+      (function() {
+        const emoji = '✌️';
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+        ctx.font = '48px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(emoji, 32, 36);
+
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = canvas.toDataURL();
+        document.head.appendChild(link);
+      })();
+    </script>
+
+    <script>
+    function widowsFix(selector, count = 2) {
+    document.querySelectorAll(selector).forEach(function(element) {
+        if (count === 2) {
+            element.innerHTML = element.innerHTML.replace(/ (\S+) (\S+)$/, ' $1&nbsp;$2');
+        }
+        if (count === 3) {
+            element.innerHTML = element.innerHTML.replace(/ (\S+) (\S+) (\S+)$/, ' $1&nbsp;$2&nbsp;$3');
+        }
+    });
+    }
+
+    // Dla akapitów – ostatnie 2 słowa sklejamy
+    widowsFix("p", 2);
+    // Dla nagłówków – ostatnie 3 słowa sklejamy
+    widowsFix("h1, h2, h3", 3);
+    </script>
+
+</head>
 
 <body>
 
-    <!-- Dodaj swoje wideo tutaj -->
 <video autoplay loop muted playsinline id="bgVideo">
 <source src="background.mp4" type="video/mp4">
 Twoja przeglądarka nie obsługuje elementu video.
 </video>
-
     <div class="overlay"></div>
-
     <div class="centered-content">
+    <div class="headline">Adam Caban</div>
+    <div class="subhead">CREATIVE DIRECTOR</div>
         <p>
-            Hi there, my name is <span class="caslon-bold">Adam</span> and I’m a creative with over 10 years of experience in the industry, which means I’ve seen trends come and go, decks get longer, and ideas get sharper.</br></br>
+            Hi there, my name is Adam and I’m a creative with over 10 years of experience in the industry, which means I’ve seen trends come and go, decks get longer, and ideas get sharper.</br></br>
             Over the years, I’ve had the opportunity to work on campaigns for brands such as <span class="caslon-italic">Nike, PepsiCo and HBO</span>, led the creative team for adidas, and most recently shaped the creative direction for <span class="caslon-italic">Lech</span>, the coldest polish beer brand araound, delivering fully integrated campaigns, from TV spots to brand activations and everything in between. You can contact me via links below.
         </p>
 
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/adam-caban-3a199129/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://www.instagram.com/adamcaban.key" target="_blank" rel="noopener">Instagram</a>
-            <a href="#" id="email-link">Mail</a>
+            <a href="https://www.linkedin.com/in/adam-caban-3a199129/" target="_blank" rel="noopener">LINKEDIN</a>
+            <a href="https://www.instagram.com/adamcaban.key" target="_blank" rel="noopener">INSTAGRAM</a>
+            <a href="#" id="email-link">MAIL</a>
         </div>
     </div>
 
