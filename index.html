@@ -45,14 +45,13 @@
             background-color: black;
         }
 
-        /* USUNIĘTO background-image */
         body {
             width: 100vw;
             height: 100vh;
             overflow: hidden;
         }
 
-        /* Nowy styl dla wideo */
+
         #bgVideo {
             position: fixed;
             top: 0; left: 0;
@@ -182,6 +181,13 @@
         @media (max-width: 600px) {
             .social-links {
                 gap: 30px;
+            }
+
+            body, .centered-content {
+              height: 100dvh !important;
+            }
+            p, .social-links {
+              margin-top: 20px;
             }
 
             p {
