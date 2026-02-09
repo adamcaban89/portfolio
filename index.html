@@ -1,0 +1,178 @@
+<html lang="pl"><head>
+    <meta charset="UTF-8">
+    <title>Prosta strona</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: black;
+        }
+
+        /* USUNIĘTO background-image */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Nowy styl dla wideo */
+        #bgVideo {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.2; /* Ustawienie przezroczystości */
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .centered-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        p {
+            text-wrap: pretty;
+            font-size: 12pt;
+            color: #FFD333;
+            max-width: 35vw;
+            opacity: 0;
+            transform: translateY(-20px);
+            filter: blur(4px);
+            animation: smoothReveal 1s ease-out forwards;
+        }
+
+        /* Tablet: max-width 900px (możesz dostosować) */
+        @media (max-width: 900px) {
+        p {
+            max-width: 60vw;
+        }
+        }
+
+        /* Telefon: max-width 600px (możesz dostosować) */
+        @media (max-width: 600px) {
+        p {
+            max-width: 70vw;
+        }
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 50px;
+            opacity: 0;
+            animation: fadeUp 2s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .social-links a {
+            position: relative;
+            color: #FFD333;
+            text-decoration: none;
+            font-size: 11pt;
+        }
+
+        /* Animowane podkreślenie */
+        .social-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 1px;
+            background-color: #FFD333;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes smoothReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .social-links {
+                gap: 30px;
+            }
+
+            p {
+                font-size: 11pt;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dodaj swoje wideo tutaj -->
+<video autoplay loop muted playsinline id="bgVideo">
+<source src="background.mp4" type="video/mp4">
+Twoja przeglądarka nie obsługuje elementu video.
+</video>
+
+    <div class="overlay"></div>
+
+    <div class="centered-content">
+        <p>
+            Hi there, my name is Adam and I’m a creative with over 10 years of experience in the industry, which means I’ve seen trends come and go, decks get longer, and ideas get sharper.</br></br>
+            Over the years, I’ve had the opportunity to work on campaigns for brands such as Nike, PepsiCo and HBO, led the creative team for adidas, and most recently shaped the creative direction for Lech, the coldest polish beer brand araound, delivering fully integrated campaigns, from TV spots to brand activations and everything in between. You can contact me via links below.
+        </p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/adam-caban-3a199129/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.instagram.com/adamcaban.key" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" id="email-link">Mail</a>
+        </div>
+    </div>
+
+    <script>
+        const user = "adam.caban";
+        const domain = "gmail.com";
+
+        document.getElementById("email-link").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "mailto:" + user + "@" + domain;
+        });
+    </script>
+
+    <script>
+        // Skrypt anty-sierotowy:
+        document.querySelectorAll('p').forEach(function(paragraph){
+            paragraph.innerHTML = paragraph.innerHTML.replace(/ ([^ ]*)$/, '&nbsp;$1');
+        });
+    </script>
+
+</body></html>
